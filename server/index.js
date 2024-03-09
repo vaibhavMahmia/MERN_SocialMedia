@@ -2,6 +2,7 @@ import express from 'express';
 import colors from 'colors';
 import dotenv from 'dotenv';
 import morgan from 'morgan';
+import cors from 'cors';
 import connectionDB  from './config/db.js';
 import postRoutes from './routes/posts.js';
 
@@ -17,7 +18,7 @@ const app = express();
 // middlewares
 app.use(express.json());
 app.use(morgan('dev'));
-
+app.use(cors());
 // routes
 app.use('/posts', postRoutes);
 
