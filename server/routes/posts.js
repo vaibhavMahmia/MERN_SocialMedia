@@ -3,7 +3,7 @@ import { createPost, getPosts } from '../controllers/posts.js';
 
 const router = express.Router();
 
-router.get('/get-posts',getPosts);
-router.post('/creste-posts',createPost);
+router.get('/',getPosts);
+router.post('/',createPost);
 
 export default router;

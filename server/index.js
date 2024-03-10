@@ -16,7 +16,8 @@ connectionDB();
 const app = express();
 
 // middlewares
-app.use(express.json());
+app.use(express.json({ limit: '30mb', extended: true }));
+app.use(express.urlencoded({ limit: '30mb', extended: true }));
 app.use(morgan('dev'));
 app.use(cors());
 // routes

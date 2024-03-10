@@ -20,5 +20,11 @@ export default makeStyles((theme) => ({
   },
   buttonSubmit: {
     marginBottom: 10,
-  },
+    backgroundColor: '#1D4E45',
+    color: '#FFFFFF',
+    "&:hover": {
+      backgroundColor: '#FFFFFF',
+      color: '#1D4E45'
+    }
+  }
 }));
