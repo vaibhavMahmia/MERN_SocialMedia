@@ -49,4 +49,10 @@ export default makeStyles({
     display: 'flex',
     justifyContent: 'space-between',
   },
+  likeButton: {
+    color: '#1D4E45'
+  },
+  deleteButton: {
+    color: 'red'
+  }
 });

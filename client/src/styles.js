@@ -8,10 +8,12 @@ export default makeStyles(() => ({
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#E27602'
+    backgroundColor:'rgba(255,255,255,0.1)',
+    backdropFilter:'blur(4px)',
   },
   heading: {
-    color: '#1D4E45',
+    color: 'rgba(252, 191, 63, 0.94)',
+    fontFamily: `"Roboto", "Helvetica", "Arial", sans-serif`,
     fontWeight: 'bolder'
   },
   image: {

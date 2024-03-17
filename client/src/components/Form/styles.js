@@ -26,5 +26,9 @@ export default makeStyles((theme) => ({
       backgroundColor: '#FFFFFF',
       color: '#1D4E45'
     }
+  },
+  notchedOutline: {
+    borderWidth: "1px",
+    borderColor: "yellow !important"
   }
 }));
