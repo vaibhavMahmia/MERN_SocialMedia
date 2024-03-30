@@ -9,17 +9,18 @@ export default makeStyles((theme) => ({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    padding: '10px 50px',
+    padding: '5px 5px',
     backgroundColor:'rgba(255,255,255,0.1)',
     backdropFilter:'blur(4px)',
   },
   heading: {
     color: 'rgba(252, 191, 63, 0.94)',
     fontFamily: `"Roboto", "Helvetica", "Arial", sans-serif`,
-    fontWeight: 'bolder'
+    fontWeight: 'bolder',
+    textDecoration: 'none'
   },
   image: {
-    marginLeft: '15px',
+    marginLeft: '5px',
   },
   toolbar: {
     display: 'flex',
