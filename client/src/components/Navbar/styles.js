@@ -9,15 +9,16 @@ export default makeStyles((theme) => ({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    padding: '5px 5px',
-    backgroundColor:'rgba(255,255,255,0.1)',
-    backdropFilter:'blur(4px)',
+    padding: '1px 1px',
+    backgroundColor:'rgba(0,0,0,0.5)',
+    backdropFilter:'blur(6px)',
   },
   heading: {
     color: 'rgba(252, 191, 63, 0.94)',
     fontFamily: `"Roboto", "Helvetica", "Arial", sans-serif`,
     fontWeight: 'bolder',
-    textDecoration: 'none'
+    textDecoration: 'none',
+    marginLeft: '15px',
   },
   image: {
     marginLeft: '5px',

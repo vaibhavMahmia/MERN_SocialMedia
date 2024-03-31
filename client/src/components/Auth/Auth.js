@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import { useNavigate } from 'react-router-dom';
 import {
   Avatar,
   Button,
@@ -10,16 +10,19 @@ import {
 } from "@material-ui/core";
 
 import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
-
-import Icon from "./icon";
-
 import useStyles from "./style";
 import Input from "./Input";
+import { useDispatch } from "react-redux";
+import { signin, signup } from '../../actions/auth';
+
+const initialState = { firstName:'', lastName:'', email:'', password:'', confirmPassword:'' };
 
 const SignUp = () => {
   const [isSignup, setIsSignup] = useState(false);
-
+  const [formData, setFormData] = useState(initialState);
   const classes = useStyles();
+  const dispatch = useDispatch();
+  const history = useNavigate();
 
   const [showPassword, setShowPassword] = useState(false);
   const handleShowPassword = () => setShowPassword(!showPassword);
@@ -29,9 +32,19 @@ const SignUp = () => {
     setShowPassword(false);
   };
 
-  const handleSubmit = (e) => {};
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if(isSignup){
+      dispatch(signup(formData, history));
+    }
+    else{
+      dispatch(signin(formData, history));
+    }
+  };
 
-  const handleChange = () => {};
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: [e.target.value] });
+  };
 
   return (
     <Container component="main" maxWidth="xs">
@@ -93,7 +106,7 @@ const SignUp = () => {
             {isSignup ? "Sign Up" : "Sign In"}
           </Button>
           
-          <Grid container justify="flex-end">
+          <Grid container justifyContent="flex-end">
             <Grid item>
               <Button onClick={switchMode}>
                 {isSignup

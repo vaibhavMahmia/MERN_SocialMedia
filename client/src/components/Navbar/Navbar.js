@@ -10,15 +10,15 @@ const Navbar = () => {
   return (
     <AppBar className={classes.appBar} position="static" color="inherit">
       <div className={classes.brandContainer}>
-        <Typography  component={Link} to="/" className={classes.heading} variant="h3" align="center">
+        <Typography  component={Link} to="/" className={classes.heading} variant="h5" align="center">
           Memories
         </Typography>
         <img
           className={classes.image}
           src={memories}
           alt="memories"
-          height="100"
-          width="150"
+          height="70"
+          width="100"
         />
       </div>
       <Toolbar className={classes.toolbar}>

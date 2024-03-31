@@ -5,6 +5,7 @@ import morgan from 'morgan';
 import cors from 'cors';
 import connectionDB  from './config/db.js';
 import postRoutes from './routes/posts.js';
+import userRoutes from './routes/users.js'
 
 // configure env
 dotenv.config();
@@ -22,6 +23,7 @@ app.use(morgan('dev'));
 app.use(cors());
 // routes
 app.use('/posts', postRoutes);
+app.use('/user', userRoutes);
 
 // rest api
 app.get('/', (req, res)=>{
