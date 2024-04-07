@@ -23,7 +23,7 @@ app.use(morgan('dev'));
 app.use(cors());
 // routes
 app.use('/posts', postRoutes);
-app.use('/user', userRoutes);
+app.use('/users', userRoutes);
 
 // rest api
 app.get('/', (req, res)=>{

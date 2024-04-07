@@ -30,7 +30,7 @@ export const signUp = async (req, res) => {
   const { email, password, confirmPassword, firstName, lastName } = req.body;
 
   try {
-    const oldUser = await UserModal.findOne({ email });
+    const oldUser = await User.findOne({ email });
 
     if (oldUser)
       return res.status(400).json({ message: "User already exists." });
@@ -39,7 +39,7 @@ export const signUp = async (req, res) => {
 
     const hashedPassword = await bcrypt.hash(password, 12);
 
-    const result = await UserModal.create({
+    const result = await User.create({
       email,
       password: hashedPassword,
       name: `${firstName} ${lastName}`,
