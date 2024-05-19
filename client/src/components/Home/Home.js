@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Container, Grow, Grid, Paper, AppBar, TextField, Button } from '@material-ui/core';
 import { useNavigate, useLocation } from 'react-router-dom';
 import ChipInput from 'material-ui-chip-input';
 import { useDispatch } from 'react-redux';
 import useStyles from './styles'
-import { getPosts } from '../../actions/posts';
+import { getPostBySearch } from '../../actions/posts';
 import Paginate from '../Pagination';
 import Posts from '../Posts/Posts';
 import Form from '../Form/Form';
@@ -23,18 +23,22 @@ const Home = () => {
   const classes = useStyles();
   const [search, setSearch] = useState('');
   const [tags, setTags] = useState([]);
-  useEffect(() => {
-    dispatch(getPosts());
-  }, [currentId, dispatch]);
-
+  
   const searchPost = () => {
-    if(search.trim()){
+    if(search.trim() || tags){
+      dispatch(getPostBySearch({ search, tags: tags.join(',') }))
+      history(`/posts/search?searchQuery=${search || 'none'}&tags=${tags.join(',')}`);
       //dispatch -> fetch search post
+    }
+    else{
+      history('/');
     }
   }
 
   const handleKeyPress = (e) => {
-    if(e.keyCode === 13) alert(e.value);
+    if(e.keyCode === 13){
+      searchPost();
+    }
   }
 
   const handleAdd = (tag) => setTags([...tags, tag]);
@@ -55,7 +59,7 @@ const Home = () => {
                 variant='filled'
                 value={search}
                 label='Search Memories'
-                onKeyPress={handleKeyPress}
+                onKeyDown={handleKeyPress}
                 fullWidth
                 onChange={(e) => setSearch(e.target.value)}
               />
@@ -67,11 +71,11 @@ const Home = () => {
                 label='Search Tags'
                 varient='filled'
               />
-              <Button onClick={searchPost} color='primary'>Search</Button>
+              <Button onClick={searchPost} variant='contained' color='primary'>Search</Button>
             </AppBar>
             <Form currentId={currentId} setCurrentId={setCurrentId} />
             <Paper elevation={6} className={classes.pagination}>
-              <Paginate/>
+              <Paginate page={page}/>
             </Paper>
           </Grid>
         </Grid>
