@@ -3,7 +3,7 @@ Just For React Practice
 Push & Pull working.
 
 
-
+Post Details Page Created
 ### SignIn SignUp frontend created ...
 
 # Home Page
